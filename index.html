@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="openfile.js"></script>
+        <script src='input.js'></script>
+    </head>
+    <body>
+
+        <!---->
+
+        <div class="container-fluid bg-light"> 
+            <hr>
+            <h2 class='display'>Inputs:</h2>
+            <hr>
+            <div class="row"> 
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="field1" class="col-md-6 col-form-label">Population Size</label>
+                        <div class="col-md-6">
+                            <input id="population-size" class="form-control" value='200'>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                            <label for="field1" class="col-md-6 col-form-label">Elite Rate</label>
+                            <div class="col-md-6">
+                                <input id="elite-rate" class="form-control" value='0.05'>
+                            </div>
+                    </div>
+
+                    <div class="form-group row">
+                            <label for="field1" class="col-md-6 col-form-label">CrossOver Rate</label>
+                            <div class="col-md-6">
+                                <input id="crossover-rate" class="form-control" value='0.80'>
+                            </div>
+                    </div>
+
+                    <div class="form-group row">
+                            <label for="field1" class="col-md-6 col-form-label">Mutation Rate</label>
+                            <div class="col-md-6">
+                                <input id="mutation-rate" class="form-control" value='0.90'>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="field1" class="col-md-6 col-form-label">Protein Length</label>
+                        <div class="col-md-6">
+                            <input id="protein-length" class="form-control" value='--' disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="field1" class="col-md-6 col-form-label">Target Value</label>
+                        <div class="col-md-6">
+                            <input id="target-value" class="form-control" value='0'>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="field1" class="col-md-6 col-form-label">Max Iteration</label>
+                        <div class="col-md-6">
+                            <input id="max-generations" class="form-control" value='1000'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END INPUTS-->
+        <!--START READ-->
+
+        <div class="container-fluid bg-light mt-2"> 
+            <hr>
+            <h2 class='display'>Read Proteins:</h2>
+            <hr>
+            <div class='row'>
+                <div class='col-1 text-right'>
+                        <input type="radio" class="form-check-input" name="optradio">
+                </div>
+                <div class='col-11'>
+                    <div class="input-group mb-3">
+                        <input type="text" id='read-text' class="form-control" placeholder="Enter Protein Sequence" aria-label="Text enter" aria-describedby="read-protein1">
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-1 text-right'>
+                        <input type="radio" class="form-check-input" name="optradio">
+                </div>
+                <div class='col-11'>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="read-file" onchange="showFile()">
+                            <label class="custom-file-label" for="read-protein-file" id='read-file-label'>Choose file</label>
+                        </div>
+                        
+                        <div class="input-group-append" id='show-file-button'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-wrapper container">
+                <div class="collapse show" id="show-text"></div>
+            </div>
+             
+        </div>
+        <!--END READ-->
+
+        <!-- CONTROL START-->
+        <div class="container-fluid bg-light mt-2">
+                <hr>
+                <h2 class='display'>Controls:</h2>
+                <hr>
+            <div class='row'>
+                <div class='col'>
+                    <button type="button" class="btn btn-success btn-block" id='start'>Start</button>
+                </div>
+                <div class='col'>
+                    <button id='protein-counter' type="button" class="btn btn-outline-secondary btn-block">Draw Folding: Off</button>
+                </div>
+                <div class='col'>
+                    <div class="input-group border border-dark">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="status-bar">Status: </span>
+                        </div>
+                        <input type="text" class="form-control bg-dark text-light" id="status" aria-describedby="status" disabled value='None'>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- END CONTROL-->
+
+        <!-- OUTPUT START-->
+        <div class='container-fluid bg-light mt-2'>
+            <hr>
+            <h2 class='display'>Output:</h2>
+            <hr>
+            <div class='border' id="plot-protein" style="width:100%;height:600px;background-color:white;"></div>
+        </div>
+        <!-- OUTPUT START-->
+   
+
+
+        <!--<script src='protein_folding.js'></script>-->
+        <script src='controller.js'></script>
+
+        <!-- Bootstrap Styling-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
